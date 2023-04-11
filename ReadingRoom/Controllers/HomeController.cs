@@ -9,7 +9,7 @@ namespace ReadingRoom.Controllers
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
-        {
+        { 
             _logger = logger;
         }
 
@@ -21,6 +21,24 @@ namespace ReadingRoom.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Random(string? x )
+        {
+
+
+            var movie = new Class() { Name = x };
+
+            ViewData["Movie"] = movie;
+
+            return View(movie);
+
+        }
+
+        public IActionResult Edit(int ID)
+        {
+            return Content("id = " + ID); 
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
